@@ -8,4 +8,9 @@ public class Doctor {
         this.name = name;
         this.specialization = specialization;
     }
+    
+    public String getDoctor() {
+        // return name + "," + specialization;
+        return "Doctor { name {" + name + "}, specialization {" + specialization + "}}";
+    }
 }

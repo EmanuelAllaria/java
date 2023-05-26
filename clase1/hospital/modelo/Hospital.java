@@ -20,15 +20,28 @@ public class Hospital {
 
     public void addDoctor(Doctor doctor) {
         doctors.add(doctor);
+        // System.out.println("Doctor " + doctor.getDoctor() + " added to the hospital.");
+    }
+
+    public String getHospital() {
+        StringBuilder hospitalInfo = new StringBuilder();
+        hospitalInfo.append("name {").append(name).append("}, address {").append(address).append("}, capacity {").append(capacity).append("}, ");
+        for (Doctor doctor : doctors) {
+            hospitalInfo.append(doctor.getDoctor()).append(", ");
+        }
+        hospitalInfo.append(", ");
+        for (Patient patient : patients) {
+            hospitalInfo.append(patient.getPatient()).append(", ");
+        }
+        return "Hospital {" + hospitalInfo.toString() + "}";
     }
 
     public void admitPatient(Patient patient) {
         if (patients.size() < capacity) {
             patients.add(patient);
-            System.out.println("Patient admitted to the hospital.");
+            // System.out.println("Patient " + patient.getPatient() + " admitted to the hospital.");
         } else {
-            System.out.println("Hospital is at full capacity. Patient cannot be admitted.");
+            // System.out.println("Hospital is at full capacity. Patient " + patient.getPatient() + " cannot be admitted.");
         }
     }
 }
-

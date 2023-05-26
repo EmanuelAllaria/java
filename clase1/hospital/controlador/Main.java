@@ -36,5 +36,11 @@ public class Main {
         // Admitir pacientes al hospital
         hospital.admitPatient(patient1);
         hospital.admitPatient(patient2);
+
+        hospital.getHospital();
+
+        System.out.println(patient1.getPatient() + "\n" + patient2.getPatient());
+        System.out.println(doctor1.getDoctor() + "\n" + doctor2.getDoctor());
+        System.out.println(hospital.getHospital());
     }
 }

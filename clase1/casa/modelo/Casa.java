@@ -1,6 +1,6 @@
 package clase1.casa.modelo;
 
-public class Casa {
+class Casa {
     private String cimientos;
     private String estructura;
     private String techo;
@@ -27,49 +27,7 @@ public class Casa {
         this.tieneCochera = builder.tieneCochera;
     }
 
-    public String getCimientos() {
-        return cimientos;
-    }
-
-    public String getEstructura() {
-        return estructura;
-    }
-
-    public String getTecho() {
-        return techo;
-    }
-
-    public String getInterior() {
-        return interior;
-    }
-
-    public int getHabitaciones() {
-        return habitaciones;
-    }
-
-    public boolean isTieneCocina() {
-        return tieneCocina;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public boolean isTienePatio() {
-        return tienePatio;
-    }
-
-    public boolean isTieneCochera() {
-        return tieneCochera;
-    }
+    // getters...
 
     @Override
     public String toString() {
@@ -88,6 +46,10 @@ public class Casa {
                 '}';
     }
 
+    public static Builder Builder() {
+        return new Builder();
+    }
+
     public static class Builder {
         private String cimientos;
         private String estructura;
@@ -101,60 +63,59 @@ public class Casa {
         private boolean tienePatio;
         private boolean tieneCochera;
 
-        public Builder() {
-        }
+        private Builder() {}
 
-        public Builder setCimientos(String cimientos) {
+        public Builder cimientos(String cimientos) {
             this.cimientos = cimientos;
             return this;
         }
 
-        public Builder setEstructura(String estructura) {
+        public Builder estructura(String estructura) {
             this.estructura = estructura;
             return this;
         }
 
-        public Builder setTecho(String techo) {
+        public Builder techo(String techo) {
             this.techo = techo;
             return this;
         }
 
-        public Builder setInterior(String interior) {
+        public Builder interior(String interior) {
             this.interior = interior;
             return this;
         }
 
-        public Builder setHabitaciones(int habitaciones) {
+        public Builder habitaciones(int habitaciones) {
             this.habitaciones = habitaciones;
             return this;
         }
 
-        public Builder setTieneCocina(boolean tieneCocina) {
+        public Builder tieneCocina(boolean tieneCocina) {
             this.tieneCocina = tieneCocina;
             return this;
         }
 
-        public Builder setPais(String pais) {
+        public Builder pais(String pais) {
             this.pais = pais;
             return this;
         }
 
-        public Builder setProvincia(String provincia) {
+        public Builder provincia(String provincia) {
             this.provincia = provincia;
             return this;
         }
 
-        public Builder setDireccion(String direccion) {
+        public Builder direccion(String direccion) {
             this.direccion = direccion;
             return this;
         }
 
-        public Builder setTienePatio(boolean tienePatio) {
+        public Builder tienePatio(boolean tienePatio) {
             this.tienePatio = tienePatio;
             return this;
         }
 
-        public Builder setTieneCochera(boolean tieneCochera) {
+        public Builder tieneCochera(boolean tieneCochera) {
             this.tieneCochera = tieneCochera;
             return this;
         }
