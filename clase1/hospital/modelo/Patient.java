@@ -10,8 +10,8 @@ public class Patient {
         this.age = age;
         this.condition = condition;
     }
+
     public String getPatient() {
-        // return name + ", " + age + ", " + condition;
         return "Patient { name {" + name + "}, age {" + age + "}, condition {" + condition + "}}";
     }
 }

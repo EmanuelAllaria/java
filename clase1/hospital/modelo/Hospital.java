@@ -9,6 +9,7 @@ public class Hospital {
     private int capacity;
     private List<Doctor> doctors;
     private List<Patient> patients;
+    private List<Habitacion> habitaciones;
 
     public Hospital(String name, String address, int capacity) {
         this.name = name;
@@ -16,11 +17,15 @@ public class Hospital {
         this.capacity = capacity;
         this.doctors = new ArrayList<>();
         this.patients = new ArrayList<>();
+        this.habitaciones = new ArrayList<>();
     }
 
     public void addDoctor(Doctor doctor) {
         doctors.add(doctor);
-        // System.out.println("Doctor " + doctor.getDoctor() + " added to the hospital.");
+    }
+
+    public void addHabitacion(Habitacion habitacion) {
+        habitaciones.add(habitacion);
     }
 
     public String getHospital() {
@@ -29,9 +34,11 @@ public class Hospital {
         for (Doctor doctor : doctors) {
             hospitalInfo.append(doctor.getDoctor()).append(", ");
         }
-        hospitalInfo.append(", ");
         for (Patient patient : patients) {
             hospitalInfo.append(patient.getPatient()).append(", ");
+        }
+        for (Habitacion habitacion : habitaciones) {
+            hospitalInfo.append(habitacion.getHabitacion()).append(", ");
         }
         return "Hospital {" + hospitalInfo.toString() + "}";
     }
@@ -39,9 +46,36 @@ public class Hospital {
     public void admitPatient(Patient patient) {
         if (patients.size() < capacity) {
             patients.add(patient);
-            // System.out.println("Patient " + patient.getPatient() + " admitted to the hospital.");
-        } else {
-            // System.out.println("Hospital is at full capacity. Patient " + patient.getPatient() + " cannot be admitted.");
         }
+    }
+
+    public void ocuparHabitacion(int numero) {
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.getNumero() == numero) {
+                if (!habitacion.isOcupada()) {
+                    habitacion.ocupar();
+                    System.out.println("Habitación " + numero + " ocupada.");
+                } else {
+                    System.out.println("La habitación " + numero + " ya está ocupada.");
+                }
+                return;
+            }
+        }
+        System.out.println("La habitación " + numero + " no existe en el hospital.");
+    }
+
+    public void desocuparHabitacion(int numero) {
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.getNumero() == numero) {
+                if (habitacion.isOcupada()) {
+                    habitacion.desocupar();
+                    System.out.println("Habitación " + numero + " desocupada.");
+                } else {
+                    System.out.println("La habitación " + numero + " ya está desocupada.");
+                }
+                return;
+            }
+        }
+        System.out.println("La habitación " + numero + " no existe en el hospital.");
     }
 }
